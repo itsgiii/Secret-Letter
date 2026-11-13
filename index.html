@@ -1,0 +1,1084 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#f7b6d0">
+<title>Secret Letter for Syifa 💌</title>
+
+<style>
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Dancing+Script:wght@500;600;700&display=swap');
+
+:root {
+    --pink: #eb5790;
+    --pink-dark: #86294f;
+    --paper: #fff8fb;
+    --muted: #a76582;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    min-height: 100vh;
+    font-family: 'DM Sans', Arial, sans-serif;
+    color: var(--pink-dark);
+    background:
+        radial-gradient(circle at 15% 15%, #ffe4ef 0, transparent 32%),
+        radial-gradient(circle at 85% 80%, #f18db8 0, transparent 38%),
+        linear-gradient(135deg, #ffd9e8, #f6a9ca 55%, #fbd7e7);
+    overflow-x: hidden;
+}
+
+button {
+    font: inherit;
+    cursor: pointer;
+}
+
+/* BACKGROUND */
+
+.background {
+    position: fixed;
+    inset: 0;
+    overflow: hidden;
+    pointer-events: none;
+    z-index: 0;
+}
+
+.float-item {
+    position: absolute;
+    bottom: -60px;
+    color: #e85b99;
+    opacity: 0;
+    animation: floatUp linear forwards;
+}
+
+@keyframes floatUp {
+    0% {
+        transform: translateY(0) rotate(0);
+        opacity: 0;
+    }
+    12% { opacity: .72; }
+    85% { opacity: .55; }
+    100% {
+        transform: translateY(-115vh) rotate(35deg);
+        opacity: 0;
+    }
+}
+
+.sparkle {
+    position: absolute;
+    color: white;
+    opacity: .7;
+    animation: twinkle 2.4s ease-in-out infinite;
+}
+
+@keyframes twinkle {
+    0%, 100% {
+        opacity: .2;
+        transform: scale(.7);
+    }
+    50% {
+        opacity: 1;
+        transform: scale(1.25);
+    }
+}
+
+/* SCREEN */
+
+main {
+    position: relative;
+    z-index: 1;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 34px 18px;
+}
+
+.screen {
+    display: none;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+    animation: fadeIn .7s ease;
+}
+
+.screen.active {
+    display: flex;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(14px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.container {
+    width: min(100%, 560px);
+    text-align: center;
+}
+
+.eyebrow {
+    font-size: 11px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    font-weight: 800;
+    color: #bd5b84;
+}
+
+.script {
+    font-family: 'Dancing Script', cursive;
+}
+
+h1 {
+    color: var(--pink-dark);
+    line-height: 1.18;
+}
+
+.description {
+    max-width: 420px;
+    margin: 0 auto;
+    color: #92536e;
+    font-size: 14px;
+    line-height: 1.9;
+}
+
+.primary-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 9px;
+    margin-top: 27px;
+    padding: 14px 28px;
+    border: 0;
+    border-radius: 40px;
+    color: white;
+    background: linear-gradient(135deg, #ef8ab2, #d65088);
+    box-shadow: 0 9px 24px #d65d8e45;
+    font-weight: 800;
+    transition: .25s;
+}
+
+.primary-btn:hover {
+    transform: translateY(-3px);
+}
+
+/* OPENING */
+
+.intro-heart {
+    font-size: 66px;
+    display: inline-block;
+    margin-bottom: 22px;
+    animation: heartbeat 1.5s infinite;
+}
+
+@keyframes heartbeat {
+    0%, 100% { transform: scale(1); }
+    15%, 45% { transform: scale(1.13); }
+    30%, 60% { transform: scale(1); }
+}
+
+#screen1 h1 {
+    font-size: clamp(38px, 8vw, 54px);
+    margin: 12px 0 18px;
+}
+
+.intro-note {
+    margin-top: 23px;
+    font-size: 11px;
+    letter-spacing: 2px;
+    color: #a76582;
+}
+
+/* ENVELOPE */
+
+#screen2 .container {
+    max-width: 500px;
+}
+
+#screen2 h1 {
+    font-size: 42px;
+    margin: 12px 0;
+}
+
+.envelope-scene {
+    width: 300px;
+    height: 220px;
+    margin: 38px auto 20px;
+    position: relative;
+    perspective: 1000px;
+    cursor: pointer;
+}
+
+.envelope {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 165px;
+    border-radius: 5px 5px 12px 12px;
+    background: #e994b3;
+    box-shadow: 0 15px 35px #a94b7330;
+}
+
+.envelope:before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: 3;
+    border-radius: 0 0 10px 10px;
+    background: linear-gradient(145deg, #f6bad0, #df7fa2);
+    clip-path: polygon(0 0, 50% 58%, 100% 0, 100% 100%, 0 100%);
+}
+
+.envelope:after {
+    content: "♥";
+    position: absolute;
+    z-index: 5;
+    left: 50%;
+    top: 57%;
+    transform: translate(-50%, -50%);
+    font-size: 29px;
+    color: #fff1f5;
+}
+
+.envelope-flap {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 110px;
+    background: #f4b3ca;
+    clip-path: polygon(0 0, 100% 0, 50% 100%);
+    transform-origin: top;
+    z-index: 4;
+    transition: transform .9s ease;
+}
+
+.letter-inside {
+    position: absolute;
+    width: 88%;
+    height: 175px;
+    left: 6%;
+    bottom: 8px;
+    background: #fffaf5;
+    border-radius: 5px;
+    z-index: 2;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 3px 10px #8e486122;
+    transition: transform 1s ease;
+}
+
+.letter-inside span {
+    font: 26px 'Dancing Script', cursive;
+    color: #ca668d;
+}
+
+.envelope.open .envelope-flap {
+    transform: rotateX(180deg);
+    z-index: 1;
+}
+
+.envelope.open .letter-inside {
+    transform: translateY(-125px);
+    transition-delay: .5s;
+}
+
+.tap-hint {
+    font-size: 12px;
+    color: #a45a78;
+    animation: pulse 1.5s infinite;
+}
+
+@keyframes pulse {
+    50% { opacity: .5; }
+}
+
+/* LETTER */
+
+.letter-card {
+    position: relative;
+    width: min(100%, 460px);
+    margin: auto;
+    text-align: left;
+    background: var(--paper);
+    padding: 38px 30px;
+    border-radius: 13px;
+    box-shadow: 0 15px 45px #9f527326;
+    border: 1px solid #f6d8e3;
+}
+
+.letter-card:before {
+    content: "♥";
+    position: absolute;
+    right: 19px;
+    top: 13px;
+    color: #e9a1ba;
+    font-size: 20px;
+}
+
+.letter-to {
+    font-size: 12px;
+    color: #bb7690;
+    letter-spacing: 1px;
+}
+
+.letter-title {
+    font: 38px 'Dancing Script', cursive;
+    color: #c25d86;
+    margin: 12px 0 22px;
+}
+
+.letter-body {
+    font-size: 14px;
+    line-height: 2;
+    color: #76505e;
+    white-space: pre-line;
+}
+
+.letter-body strong {
+    color: #c25d86;
+}
+
+.signature {
+    margin-top: 27px;
+    text-align: right;
+}
+
+.signature span {
+    display: block;
+    font-size: 13px;
+    color: #9c7482;
+}
+
+.signature strong {
+    font: 30px 'Dancing Script', cursive;
+    color: #cb628b;
+}
+
+.letter-footer {
+    text-align: center;
+    font-size: 10px;
+    letter-spacing: 2px;
+    color: #c58ba1;
+    margin-top: 27px;
+}
+
+/* QUESTION */
+
+.question-container {
+    width: 100%;
+    max-width: 760px;
+}
+
+.question-card {
+    width: 100%;
+    min-height: 650px;
+    padding: 58px 34px;
+    border-radius: 48px;
+    background: rgba(255, 250, 252, .84);
+    border: 2px solid rgba(255,255,255,.92);
+    box-shadow: 0 15px 45px rgba(170,65,110,.13);
+    backdrop-filter: blur(12px);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.big-heart {
+    font-size: 88px;
+    margin-bottom: 20px;
+    animation: heartbeat 1.5s infinite;
+}
+
+.question-heading {
+    font-size: clamp(36px, 6vw, 54px);
+    font-weight: 800;
+    margin-bottom: 24px;
+}
+
+.question-intro {
+    color: #86294f;
+    font-size: clamp(15px, 2.5vw, 20px);
+    line-height: 1.85;
+    font-weight: 600;
+    max-width: 620px;
+    margin-bottom: 34px;
+}
+
+.main-question {
+    color: #86294f;
+    font-size: clamp(27px, 5vw, 43px);
+    font-weight: 800;
+    line-height: 1.3;
+    margin-bottom: 22px;
+}
+
+.question-description {
+    color: #86294f;
+    font-size: clamp(15px, 2.4vw, 20px);
+    line-height: 1.8;
+    max-width: 610px;
+}
+
+.answers {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 14px;
+    flex-wrap: wrap;
+    margin-top: 38px;
+    min-height: 100px;
+    position: relative;
+}
+
+.answer-btn {
+    border: 0;
+    border-radius: 42px;
+    padding: 19px 28px;
+    min-height: 78px;
+    font-size: clamp(17px, 2.5vw, 22px);
+    font-weight: 800;
+    transition: transform .35s ease, box-shadow .35s ease;
+}
+
+.yes-btn {
+    background: #eb5790;
+    color: white;
+    min-width: 160px;
+    box-shadow: 0 12px 25px rgba(220,75,130,.25);
+    transform: scale(1);
+    transform-origin: center;
+    position: relative;
+    z-index: 2;
+}
+
+.yes-btn:hover {
+    background: #df4682;
+}
+
+.no-btn {
+    background: white;
+    color: #df4d83;
+    min-width: 160px;
+    max-width: 100%;
+    border: 1px solid white;
+    position: relative;
+    z-index: 3;
+}
+
+.no-btn:hover {
+    background: #fff0f6;
+}
+
+.after-eight {
+    display: none;
+    max-width: 590px;
+    margin-top: 22px;
+    padding: 15px 20px;
+    border-radius: 20px;
+    background: #fff0f6;
+    color: #a13d68;
+    font-size: 15px;
+    line-height: 1.7;
+    animation: fadeIn .5s ease;
+}
+
+.after-eight.show {
+    display: block;
+}
+
+.question-footer {
+    margin-top: 30px;
+    color: #a76582;
+    font-size: 15px;
+    font-weight: 600;
+}
+
+/* ENDING */
+
+.success-card,
+.gentle-card {
+    width: min(100%, 500px);
+    margin: auto;
+    padding: 40px 26px;
+    text-align: center;
+    background: #fffafcdd;
+    border: 1px solid white;
+    border-radius: 28px;
+    box-shadow: 0 15px 45px #a94b7330;
+    backdrop-filter: blur(10px);
+}
+
+.success-heart,
+.gentle-emoji {
+    font-size: 78px;
+    display: inline-block;
+    animation: heartbeat .9s infinite;
+}
+
+.success-card h1,
+.gentle-card h1 {
+    font: 44px 'Dancing Script', cursive;
+    margin: 15px 0;
+}
+
+.success-card .description,
+.gentle-card .description {
+    margin-top: 14px;
+}
+
+.ending-note {
+    margin-top: 25px;
+    font-size: 12px;
+    letter-spacing: 1px;
+    color: #a76582;
+}
+
+/* RESPONSIVE */
+
+@media(max-width: 600px) {
+    main {
+        padding: 22px 14px;
+    }
+
+    .question-card {
+        min-height: 0;
+        padding: 42px 20px;
+        border-radius: 34px;
+    }
+
+    .big-heart {
+        font-size: 76px;
+        margin-bottom: 17px;
+    }
+
+    .question-heading {
+        margin-bottom: 19px;
+    }
+
+    .question-intro {
+        margin-bottom: 27px;
+    }
+
+    .main-question {
+        margin-bottom: 19px;
+    }
+
+    .answers {
+        gap: 12px;
+        margin-top: 29px;
+        min-height: 85px;
+    }
+
+    .answer-btn {
+        min-height: 68px;
+        padding: 15px 19px;
+    }
+
+    .yes-btn {
+        min-width: 118px;
+    }
+
+    .no-btn {
+        min-width: 138px;
+    }
+
+    .question-footer {
+        margin-top: 26px;
+    }
+
+    .letter-card {
+        padding: 32px 23px;
+    }
+
+    .letter-body {
+        font-size: 13px;
+    }
+}
+
+@media(max-width: 360px) {
+    .question-card {
+        padding: 35px 15px;
+    }
+
+    .answers {
+        gap: 9px;
+    }
+
+    .answer-btn {
+        padding: 14px 13px;
+        font-size: 16px;
+    }
+
+    .yes-btn {
+        min-width: 105px;
+    }
+
+    .no-btn {
+        min-width: 125px;
+    }
+}
+
+@media(prefers-reduced-motion: reduce) {
+    *, *:before, *:after {
+        animation-duration: .01ms !important;
+        animation-iteration-count: 1 !important;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<div class="background" id="background"></div>
+
+<main>
+
+<!-- HALAMAN 1: OPENING -->
+
+<section class="screen active" id="screen1">
+    <div class="container">
+
+        <div class="intro-heart">💌</div>
+
+        <div class="eyebrow">
+            A little something for you
+        </div>
+
+        <h1 class="script">Hey, Syifa!</h1>
+
+        <p class="description">
+            Someone has something to tell you....<br>
+            And this little letter is made especially for you.
+        </p>
+
+        <button class="primary-btn" onclick="goTo(2)">
+            Open Your Letter ♡
+        </button>
+
+        <div class="intro-note">
+            MADE WITH LOVE BY GIII
+        </div>
+
+    </div>
+</section>
+
+<!-- HALAMAN 2: ENVELOPE -->
+
+<section class="screen" id="screen2">
+    <div class="container">
+
+        <div class="eyebrow">A special letter</div>
+
+        <h1 class="script">For You, Syifa</h1>
+
+        <p class="description">
+            I have written something for you.<br>
+            Take your time and open it. 💗
+        </p>
+
+        <div class="envelope-scene"
+             onclick="openEnvelope()"
+             role="button"
+             aria-label="Open the envelope">
+
+            <div class="envelope" id="envelope">
+
+                <div class="letter-inside">
+                    <span>For Syifa ♡</span>
+                </div>
+
+                <div class="envelope-flap"></div>
+
+            </div>
+        </div>
+
+        <p class="tap-hint" id="tapHint">
+            Tap the envelope to open it ♡
+        </p>
+
+    </div>
+</section>
+
+<!-- HALAMAN 3: SURAT -->
+
+<section class="screen" id="screen3">
+    <div class="container">
+
+        <div class="letter-card">
+
+            <div class="letter-to">
+                TO: SOMEONE SPECIAL
+            </div>
+
+            <h1 class="letter-title">
+                Dear Syifa,
+            </h1>
+
+            <div class="letter-body">Aku ingin menyampaikan sesuatu yang sudah cukup lama aku simpan.
+
+Aku senang bisa mengenalmu, dan semakin lama aku semakin ingin mengenalmu lebih dekat.
+
+Mungkin ini sederhana, but I just want you to know that you have become someone special to me.
+
+Aku tidak tahu bagaimana semuanya akan berjalan ke depannya, tetapi aku ingin mencoba melangkah lebih dekat dan mengenalmu lebih jauh.
+
+<strong>I hope this little letter makes you smile. ♡</strong></div>
+
+            <div class="signature">
+                <span>With warm feelings,</span>
+                <strong>Giii ♡</strong>
+            </div>
+
+            <div class="letter-footer">
+                A LITTLE CONFESSION · MADE WITH LOVE
+            </div>
+
+        </div>
+
+        <button class="primary-btn" onclick="goTo(4)">
+            There's One More Thing... ♡
+        </button>
+
+    </div>
+</section>
+
+<!-- HALAMAN 4: PERTANYAAN -->
+
+<section class="screen" id="screen4">
+    <div class="container question-container">
+
+        <div class="question-card">
+
+            <div class="big-heart">💗</div>
+
+            <h1 class="question-heading">
+                Hey, Syifa!
+            </h1>
+
+            <p class="question-intro">
+                Aku ingin menyampaikan sesuatu yang sudah cukup lama aku simpan...
+                <br>
+                And today, I finally got the courage to ask you something.
+            </p>
+
+            <h2 class="main-question">
+                Would You Give Me A Chance? 🥺
+            </h2>
+
+            <p class="question-description">
+                Aku senang bisa mengenalmu, dan semakin lama aku semakin ingin mengenalmu lebih dekat.
+                <br><br>
+                Would you like to be someone special in my life?
+            </p>
+
+            <div class="answers">
+
+                <button class="answer-btn yes-btn"
+                        id="yesButton"
+                        onclick="sayYes()">
+                    YES! 💖
+                </button>
+
+                <button class="answer-btn no-btn"
+                        id="noButton"
+                        onclick="sayNo()">
+                    No 🙈
+                </button>
+
+            </div>
+
+            <div class="after-eight" id="afterEight">
+                I guess my heart really wants to ask you one more time... 🥺💗
+            </div>
+
+            <div class="question-footer">
+                Made with love, just for you. ♡
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<!-- HALAMAN 5: JAWABAN YES -->
+
+<section class="screen" id="screen5">
+    <div class="container">
+
+        <div class="success-card">
+
+            <div class="success-heart">💞</div>
+
+            <div class="eyebrow">
+                A beautiful beginning
+            </div>
+
+            <h1>Thank You, Syifa!</h1>
+
+            <p class="description">
+                You just made my day a little more beautiful. 🥹
+
+                <br><br>
+
+                I don't expect everything to be perfect.
+                I just hope we can get to know each other better,
+                share little stories, and create beautiful memories together.
+
+                <br><br>
+
+                Whatever happens next, I'm glad I found
+                the courage to tell you this.
+
+                <br><br>
+
+                <strong>With love, Giii. ❤️</strong>
+            </p>
+
+            <div class="ending-note">
+                THIS IS JUST THE BEGINNING ♡
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<!-- HALAMAN 6: JAWABAN NO -->
+
+<section class="screen" id="screen6">
+    <div class="container">
+
+        <div class="gentle-card">
+
+            <div class="gentle-emoji">💗</div>
+
+            <h1>It's Okay, Syifa.</h1>
+
+            <p class="description">
+                Thank you for reading my little letter.
+
+                <br><br>
+
+                I respect your feelings and your answer.
+                I just wanted to be honest about mine.
+
+                <br><br>
+
+                I hope you always have reasons to smile.
+                Take care of yourself! ♡
+            </p>
+
+            <div class="signature">
+                <strong>— Giii</strong>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+</main>
+
+<script>
+
+/* BACKGROUND HEARTS */
+
+const background = document.getElementById('background');
+
+function createFloatingItem() {
+
+    const item = document.createElement('span');
+
+    item.className = 'float-item';
+
+    const symbols = ['♡', '♥', '💕', '💗', '💖', '✦'];
+
+    item.textContent =
+        symbols[Math.floor(Math.random() * symbols.length)];
+
+    item.style.left = Math.random() * 100 + '%';
+
+    item.style.fontSize =
+        (17 + Math.random() * 22) + 'px';
+
+    item.style.animationDuration =
+        (7 + Math.random() * 7) + 's';
+
+    background.appendChild(item);
+
+    setTimeout(() => item.remove(), 15000);
+}
+
+setInterval(createFloatingItem, 500);
+
+/* SPARKLES */
+
+function createSparkle() {
+
+    const sparkle = document.createElement('span');
+
+    sparkle.className = 'sparkle';
+    sparkle.textContent = '✦';
+
+    sparkle.style.left = Math.random() * 100 + '%';
+    sparkle.style.top = Math.random() * 100 + '%';
+
+    sparkle.style.fontSize =
+        (8 + Math.random() * 12) + 'px';
+
+    background.appendChild(sparkle);
+
+    setTimeout(() => sparkle.remove(), 3000);
+}
+
+setInterval(createSparkle, 850);
+
+/* NAVIGASI HALAMAN */
+
+function goTo(number) {
+
+    document.querySelectorAll('.screen')
+        .forEach(screen => {
+            screen.classList.remove('active');
+        });
+
+    document.getElementById('screen' + number)
+        .classList.add('active');
+
+    window.scrollTo({
+        top: 0,
+        behavior: 'smooth'
+    });
+}
+
+/* ANIMASI AMPLOP */
+
+let envelopeOpened = false;
+
+function openEnvelope() {
+
+    if (envelopeOpened) return;
+
+    envelopeOpened = true;
+
+    document.getElementById('envelope')
+        .classList.add('open');
+
+    document.getElementById('tapHint')
+        .textContent = 'Your letter is opening... ♡';
+
+    setTimeout(() => {
+        goTo(3);
+    }, 1900);
+}
+
+/* LOGIKA TOMBOL YES DAN NO */
+
+let noCount = 0;
+
+const noMessages = [
+    'Please think again! 💗',
+    'Are you sure? 🥺',
+    'One more chance? 💕',
+    'Really, Syifa? 😭',
+    'Don’t say No! 💖',
+    'Pretty please? 🥹',
+    'How about YES? 💗',
+    'Please reconsider! 💞'
+];
+
+function sayNo() {
+
+    noCount++;
+
+    const yesButton =
+        document.getElementById('yesButton');
+
+    const noButton =
+        document.getElementById('noButton');
+
+    // Klik NO ke-9: halaman penutup
+    if (noCount > 8) {
+        goTo(6);
+        return;
+    }
+
+    // YES membesar setiap kali NO ditekan
+    const scale = Math.min(
+        1 + noCount * 0.18,
+        2.44
+    );
+
+    yesButton.style.transform =
+        `scale(${scale})`;
+
+    yesButton.style.boxShadow =
+        '0 12px 35px rgba(220,75,130,.45)';
+
+    // Ganti tulisan NO
+    noButton.textContent =
+        noMessages[noCount - 1];
+
+    // Pesan khusus setelah 8 kali
+    if (noCount === 8) {
+
+        document.getElementById('afterEight')
+            .classList.add('show');
+
+        noButton.textContent = 'I still say No 🙈';
+    }
+}
+
+/* JAWABAN YES */
+
+function sayYes() {
+
+    goTo(5);
+
+    // Animasi hujan hati
+    for (let i = 0; i < 32; i++) {
+
+        setTimeout(() => {
+
+            const item = document.createElement('span');
+
+            item.className = 'float-item';
+
+            item.textContent =
+                ['💗', '💖', '💕', '♥'][
+                    Math.floor(Math.random() * 4)
+                ];
+
+            item.style.left =
+                Math.random() * 100 + '%';
+
+            item.style.fontSize =
+                (22 + Math.random() * 18) + 'px';
+
+            item.style.animationDuration = '5s';
+
+            background.appendChild(item);
+
+            setTimeout(() => item.remove(), 6000);
+
+        }, i * 85);
+    }
+}
+
+</script>
+
+</body>
+</html>
